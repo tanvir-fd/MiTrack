@@ -34,7 +34,12 @@ const startCam = () => {
   // validate video element
   if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices
-      .getUserMedia({ video: true })
+      .getUserMedia({ 
+        audio: false,
+        video: {
+          facingMode: 'environment'
+        }
+      })
       .then((stream) => {
         video.srcObject = stream;
       })
